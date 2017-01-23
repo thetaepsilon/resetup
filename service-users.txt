@@ -1,0 +1,28 @@
+# non-interactive service uids
+# it's just the same as giving each service it's own uid, for separation.
+# the difference being I don't (yet!) have packages for these to automate it for me.
+# a fair few of these alsa have their own allow rules in the firewall.
+# just to allow more fine-grained network access.
+# creating them: it doesn't really matter if they're created as a "system" user.
+# just be sure to set their home dir to / and login to /sbin/nologin, and --no-create-home.
+
+
+# packages user: for *ahem* rsyncing archlinux mirrors *cough*
+# I HAVE GOOD RAISINS TO DO EET LEAVE ME ALONE
+# basically, it owns the local copy of the mirror.
+# (note this is separate from pacman's own cache, so don't forget the -Sc)
+packages
+
+# FIXME: add a bittorrent user that is non-interactive?
+# I should look into transmission-cli at some point.
+
+# "privileged do" user
+# think of it as poor man's sudo.
+# but instead of allowing the user to run commands and filter which ones,
+# allow them to specify helper scripts by name only to be run on their behalf.
+# this user also has polkit rules to let it do stuff.
+privdo
+
+# clearnet HTTP: the HTTP gateway server runs as this user.
+# the gateway server lets preset apps get through the firewall for my normal user.
+clearnet_http
