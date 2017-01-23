@@ -1,0 +1,21 @@
+# normal login users to create
+# used by symbolic name in most cases (for e.g. systemd units),
+# so make sure these are created before installing configs.
+# for the purposes of setting up, a default call to useradd should do:
+# group with same name created, home is /home/$user.
+# you can set the passwords yourself.
+
+# normal user
+user
+
+# admin user, gets polkit privileges
+# note that it *doesn't* get a sudoers entry,
+# I don't use traditional setuid sudo.
+# this is replaced with polkit rights to machinectl shell.
+admin
+
+# "clearnet" user
+# gets let pass the firewall unconditionally in non-paranoid firewall.
+# not used for any services, but is an interactive user.
+# mostly for muh multiplayer games.
+clearnet
