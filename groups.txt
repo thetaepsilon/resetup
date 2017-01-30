@@ -1,0 +1,8 @@
+# groups that are purely used for giving privileges to certain users to write to specialised helper sockets.
+# this is mostly useful when the reading end has to be root to do it's job.
+# see the backlight daemon thingy I made for an example.
+# a simple "groupadd $groupname" will do, there's nothing special about them.
+
+
+# group for the backlightctl socket used by the backlightlisten daemon
+backlightctl
